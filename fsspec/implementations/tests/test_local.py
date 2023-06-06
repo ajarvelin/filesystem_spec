@@ -396,7 +396,7 @@ def test_file_ops(tmpdir):
     files = [tmpdir + "/afile4", tmpdir + "/afile5"]
     [fs.touch(f) for f in files]
 
-    with pytest.raises(TypeError):
+    with pytest.raises(AttributeError):
         fs.rm_file(files)
     fs.rm(files)
     assert all(not fs.exists(f) for f in files)
